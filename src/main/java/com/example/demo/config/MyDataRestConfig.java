@@ -72,23 +72,23 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         };
     }
 
-    @Configuration
-    public class WebApplicationConfig implements WebMvcConfigurer {
+    // @Configuration
+    // public class WebApplicationConfig implements WebMvcConfigurer {
 
-        @Override
-        public void addViewControllers(ViewControllerRegistry registry) {
-            registry.addViewController("/notFound").setViewName("forward:/index.html");
-        }
+    //     @Override
+    //     public void addViewControllers(ViewControllerRegistry registry) {
+    //         registry.addViewController("/notFound").setViewName("forward:/index.html");
+    //     }
 
-        @Bean
-        public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> containerCustomizer() {
-            return container -> {
-                container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND,
-                        "/notFound"));
-            };
-        }
+    //     @Bean
+    //     public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> containerCustomizer() {
+    //         return container -> {
+    //             container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND,
+    //                     "/notFound"));
+    //         };
+    //     }
 
-    }
+    // }
 
     private void exposeIds(RepositoryRestConfiguration config) {
         // expose entity ids
